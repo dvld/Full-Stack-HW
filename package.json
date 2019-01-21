@@ -1,0 +1,28 @@
+{
+  "name": "full-stack-hw",
+  "version": "1.0.0",
+  "description": "A full stack MERN application. Homework assignment for SMU Bootcamp.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dvld/Full-Stack-HW.git"
+  },
+  "author": "Niko Roberts",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dvld/Full-Stack-HW/issues"
+  },
+  "homepage": "https://github.com/dvld/Full-Stack-HW#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "concurrently": "^4.1.0",
+    "express": "^4.16.4",
+    "mongoose": "^5.4.5"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.9"
+  }
+}
