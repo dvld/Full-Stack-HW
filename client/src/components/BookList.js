@@ -13,16 +13,18 @@ import {
 } from 'react-transition-group'
 
 import uuid from 'uuid'
+import { connect } from 'react-redux'
+import { getBooks } from '../actions/bookActions'
+import PropTypes from 'prop-types'
 
 class BookList extends Component {
-  state = {
-    books: [
-      { id: uuid(), name: 'TestBook' }
-    ]
+
+  componentDidMount() {
+    this.props.getBooks();
   }
 
   render() {
-    const { books } = this.state;
+    const { books } = this.props.book;
 
     return (
       <Container>
@@ -77,4 +79,13 @@ class BookList extends Component {
 
 }
 
-export default BookList
+BookList.propTypes = {
+  getBooks: PropTypes.func.isRequired,
+  book: PropTypes.object.isRequired
+}
+
+const mapStateToProps = (state) => ({
+  book: state.book
+});
+
+export default connect(mapStateToProps, { getBooks })(BookList);
