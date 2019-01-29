@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+
 import {
   Button,
   Modal,
@@ -9,6 +10,7 @@ import {
   Label,
   Input
 } from 'reactstrap'
+
 import uuid from 'uuid'
 
 import { connect } from 'react-redux'
@@ -24,7 +26,7 @@ class BookModal extends Component {
     this.setState({
       modal: !this.state.modal
     });
-  };
+  }
 
   onChange = event => {
     this.setState({
@@ -71,7 +73,7 @@ class BookModal extends Component {
 
           <ModalBody>
             <Form
-              onsubmit={this.onSubmit}
+              onSubmit={this.onSubmit}
             >
 
               <FormGroup>

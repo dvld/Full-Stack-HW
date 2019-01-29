@@ -12,7 +12,6 @@ import {
   TransitionGroup
 } from 'react-transition-group'
 
-import uuid from 'uuid'
 import { connect } from 'react-redux'
 import { getBooks, deleteBook } from '../actions/bookActions'
 import PropTypes from 'prop-types'
@@ -23,7 +22,7 @@ class BookList extends Component {
     this.props.getBooks();
   }
 
-  onDelete = (id) => {
+  onDeleteClick = id => {
     this.props.deleteBook(id);
   };
 
@@ -47,7 +46,7 @@ class BookList extends Component {
                     className='remove-btn'
                     color='danger'
                     size='sm'
-                    onClick={this.onDelete.bind(this, id)}
+                    onClick={this.onDeleteClick.bind(this, id)}
                   >
                     &times;
                 </Button>

@@ -7,6 +7,7 @@ import store from './store'
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
+// components
 import MyNavbar from './components/MyNavbar'
 import BookList from './components/BookList'
 import BookModal from './components/bookModal'
@@ -18,8 +19,8 @@ class App extends Component {
         <div className="App">
           <MyNavbar />
           <Container>
-          <BookModal />
-          <BookList />
+            <BookModal />
+            <BookList />
           </Container>
         </div>
       </Provider>
