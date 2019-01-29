@@ -2,16 +2,13 @@ import uuid from 'uuid'
 import {
   GET_BOOKS,
   ADD_BOOK,
-  DELETE_BOOK
+  DELETE_BOOK,
+  BOOKS_LOADING
 } from '../actions/types'
 
 const initialState = {
-  books: [
-    { id: uuid(), name: 'TestBook' },
-    { id: uuid(), name: 'AnotherBook' },
-    { id: uuid(), name: 'BookAgain' },
-    { id: uuid(), name: 'LastBook' }
-  ]
+  books: [],
+  loading: false
 };
 
 export default function (state = initialState, action) {
@@ -19,19 +16,27 @@ export default function (state = initialState, action) {
 
     case GET_BOOKS:
       return {
-        ...state
+        ...state,
+        books: action.payload,
+        loading: false
       };
 
     case DELETE_BOOK:
       return {
         ...state,
-        books: state.books.filter(book => book.id !== action.payload)
+        books: state.books.filter(book => book._id !== action.payload)
       };
 
     case ADD_BOOK:
       return {
         ...state,
         books: [action.payload, ...state.books]
+      };
+
+    case BOOKS_LOADING:
+      return {
+        ...state,
+        loading: true
       };
 
     default:

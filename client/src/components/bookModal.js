@@ -11,8 +11,6 @@ import {
   Input
 } from 'reactstrap'
 
-import uuid from 'uuid'
-
 import { connect } from 'react-redux'
 import { addBook } from '../actions/bookActions'
 
@@ -38,7 +36,6 @@ class BookModal extends Component {
     event.preventDefault();
 
     const newBook = {
-      id: uuid(),
       name: this.state.name
     }
 

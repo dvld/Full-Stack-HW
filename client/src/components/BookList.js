@@ -35,9 +35,9 @@ class BookList extends Component {
           <TransitionGroup
             className='book-list'
           >
-            {books.map(({ id, name }) => (
+            {books.map(({ _id, name }) => (
               <CSSTransition
-                key={id}
+                key={_id}
                 timeout={500}
                 classNames='fade'
               >
@@ -46,7 +46,7 @@ class BookList extends Component {
                     className='remove-btn'
                     color='danger'
                     size='sm'
-                    onClick={this.onDeleteClick.bind(this, id)}
+                    onClick={this.onDeleteClick.bind(this, _id)}
                   >
                     &times;
                 </Button>
