@@ -14,7 +14,7 @@ import {
 
 import uuid from 'uuid'
 import { connect } from 'react-redux'
-import { getBooks } from '../actions/bookActions'
+import { getBooks, deleteBook } from '../actions/bookActions'
 import PropTypes from 'prop-types'
 
 class BookList extends Component {
@@ -23,25 +23,15 @@ class BookList extends Component {
     this.props.getBooks();
   }
 
+  onDelete = (id) => {
+    this.props.deleteBook(id);
+  };
+
   render() {
     const { books } = this.props.book;
 
     return (
       <Container>
-        <Button
-          color='dark'
-          style={{ marginBottom: '2rem' }}
-          onClick={() => {
-            const name = prompt('Add Book');
-            if (name) {
-              this.setState(state => ({
-                books: [...state.books, { id: uuid(), name }]
-              }));
-            }
-          }}
-        >
-          New Book
-        </Button>
         <ListGroup>
           <TransitionGroup
             className='book-list'
@@ -57,13 +47,7 @@ class BookList extends Component {
                     className='remove-btn'
                     color='danger'
                     size='sm'
-                    onClick={() => {
-                      this.setState(state => ({
-                        books: state.books.filter(
-                          book => book.id !== id
-                        )
-                      }));
-                    }}
+                    onClick={this.onDelete.bind(this, id)}
                   >
                     &times;
                 </Button>
@@ -88,4 +72,7 @@ const mapStateToProps = (state) => ({
   book: state.book
 });
 
-export default connect(mapStateToProps, { getBooks })(BookList);
+export default connect(
+  mapStateToProps,
+  { getBooks, deleteBook }
+)(BookList);

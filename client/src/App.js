@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Container } from 'reactstrap'
 
 import { Provider } from 'react-redux'
 import store from './store'
@@ -8,6 +9,7 @@ import './App.css';
 
 import MyNavbar from './components/MyNavbar'
 import BookList from './components/BookList'
+import BookModal from './components/bookModal'
 
 class App extends Component {
   render() {
@@ -15,7 +17,10 @@ class App extends Component {
       <Provider store={store}>
         <div className="App">
           <MyNavbar />
+          <Container>
+          <BookModal />
           <BookList />
+          </Container>
         </div>
       </Provider>
     );

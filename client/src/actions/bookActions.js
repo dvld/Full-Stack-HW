@@ -9,3 +9,17 @@ export const getBooks = () => {
     type: GET_BOOKS
   };
 };
+
+export const deleteBook = id => {
+  return {
+    type: DELETE_BOOK,
+    payload: id
+  };
+};
+
+export const addBook = book => {
+  return {
+    type: ADD_BOOK,
+    payload: book
+  };
+};
